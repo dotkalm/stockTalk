@@ -1,1 +1,1 @@
-//
+// this is our comments.js file this will display the content to the user
