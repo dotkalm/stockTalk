@@ -1,1 +1,6 @@
-// this is our comments.js file this will display the content to the user
+const express = require('express');
+const router = express.Router();
+const Post = require('../models/posts');
+const User = require('../models/users');
+
+module.exports = router
