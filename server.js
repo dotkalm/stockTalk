@@ -22,7 +22,7 @@ app.use(session({
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(methodOverride('_method'));
 
-app.use('/comments', commentsController);
+// app.use('/comments', commentsController);
 app.use('/posts', postsController);
 app.use('/users', usersController);
 
