@@ -1,5 +1,5 @@
 const express           = require('express');
-const bodyParer         = require('body-parser');
+const bodyParser        = require('body-parser');
 const methodOverride    = require('method-override');
 const session           = require('express-session');
 const app               = express();

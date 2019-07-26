@@ -3,7 +3,7 @@ const router    = express.Router();
 const User      = require('../models/users');
 const bcrypt    = require('bcryptjs');
 
-router.post('login', async (req, res) =>{
+router.post('/login', async (req, res) =>{
 
     try {
         const foundUser = await User.findOne({username: req.body.username});
@@ -39,3 +39,5 @@ router.post('login', async (req, res) =>{
 
 
 //router.post('/register', async (req))
+
+module.exports = router;
