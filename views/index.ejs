@@ -8,12 +8,26 @@
     <header>
       <h1>Bienvenidos, Amigos</h1>
      </header>
-    <main>
     <br>
     <section>
     <a href='/users/'>Users</a>
     <a href='/posts/'>Posts</a>
     </section>
+      <main>
+        <h2>Login</h2>
+        <form action="/users/login" method="POST">
+          <input type="text" name="username">
+          <input type="password" name="password">
+          <button type='submit'>Login</button>
+        </form>
+
+        <h2>Register</h2>
+       <form action="/user/register" method="POST">
+        <input type="text" name="username">
+        <input type="password" name="password">
+        <input type="email" name="email">
+        <button type="submit">Create Account!</button>
+      </form>
     </main>
   </body>
 </html>
