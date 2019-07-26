@@ -30,7 +30,7 @@ router.post('login', async (req, res) =>{
             res.redirect('/')
     }
 
-    } catch(err){
+    } catch (err){
         res.send(err);
     }
 

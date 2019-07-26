@@ -6,27 +6,21 @@
   </head>
   <body>
     <header>
-      <h1>Create an Article</h1>
+      <h1>Create a Post</h1>
       <nav>
         <ul>
           <li>
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="/articles">Articles Index</a>
+            <a href="/post">All Posts</a>
           </li>
         </ul>
       </nav>
     </header>
     <main>
-      <form action="/articles" method="post">
-        <select name="authorId">
-
-          <%for (let i = 0; i < authors.length; i++){%>
-
-              <option value="<%=authors[i]._id%>"><%=authors[i].name%></option>
-          <%}%>
-        </select><br/>
+      <form action="/posts" method="post">
+        <%=req.session.username%>
         <input type="text" name="title" /><br/>
         <textarea name="body"></textarea><br/>
         <input type="submit" value="Publish Article"/>
