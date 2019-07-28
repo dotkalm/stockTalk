@@ -14,6 +14,8 @@
     <a href='/posts/'>Posts</a>
     </section>
       <main>
+      <span><%=message%></span>
+<h2><%= user.username %>
         <h2>Login</h2>
         <form action="/users/login" method="POST">
           <input type="text" name="username">
@@ -22,7 +24,7 @@
         </form>
 
         <h2>Register</h2>
-       <form action="/user/register" method="POST">
+       <form action="/users/register" method="POST">
         <input type="text" name="username">
         <input type="password" name="password">
         <input type="email" name="email">

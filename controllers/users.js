@@ -17,7 +17,7 @@ router.post('/login', async (req, res) =>{
             req.session.username = foundUser.username;
             req.session.logged = true;
 
-            res.redirect('/models')
+            res.redirect('/posts')
 
         } else {
 

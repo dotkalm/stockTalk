@@ -10,7 +10,9 @@ router.get('/', async (req,res) => {
         const foundPosts = await Post.find({}).populate('author');
         console.log(foundPosts, '<--------')
         res.render('posts/index.ejs', {
-            posts: foundPosts
+            posts: foundPosts,
+            message: req.session.message,
+            user: req.session
         })
     } catch(err){
         res.send(err)
