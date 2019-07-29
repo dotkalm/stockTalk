@@ -19,28 +19,28 @@ router.get('/', async (req,res) => {
     };
 });
 
-    router.get('/new', async (req, res) => {
-        try{
-            res.render('posts/new.ejs', {
-                user: req.session
-            });
-        
-        }  catch(err){
-            res.send(err)
-        };
-    });
+router.get('/new', async (req, res) => {
+    try{
+        res.render('posts/new.ejs', {
+            user: req.session
+        });
+    
+    }  catch(err){
+        res.send(err)
+    };
+});
 
-    router.post('/', (req, res) => {
-        console.log(req.body, 'req.body')
-        Post.create(req.body, (err, foundPosts) => {
-            if(err){
-                res.send(err);
-            } else {
-                console.log(foundPosts, 'created a post');
-                res.redirect('/posts')
-            }
-        })
-    });
+router.post('/', (req, res) => {
+    
+    Post.create(req.body, (err, foundPosts) => {
+        if(err){
+            res.send(err);
+        } else {
+            console.log(foundPosts, 'created a post');
+            res.redirect('/posts')
+        }
+    })
+});
      
     
     module.exports = router;

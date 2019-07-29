@@ -15,8 +15,9 @@
     <section>
     <% for(let i=0; i<posts.length; i++){%>
       <br/>
-      <%=posts[i].title%> added by 
-      <%=posts[i].author.username%></br>
+      <h1><%=posts[i].title%></h1><br>
+      <%=posts[i].body%>
+      <%=posts[i].author%>
       
     <% } %>
     </section>
