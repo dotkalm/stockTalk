@@ -36,11 +36,29 @@ router.post('/', (req, res) => {
         if(err){
             res.send(err);
         } else {
+            User.findById(req.body.author._id, (err, foundUser) => {
+                foundUser.posts.push(foundPosts)
+                foundPosts.author = foundUser;
+                foundPosts.save();
+                foundUser.save((err, savedUser) => {
+                    res.redirect('/posts')
+                })
+            })
             console.log(foundPosts, 'created a post');
-            res.redirect('/posts')
+            
         }
     })
 });
-     
+
+router.get('/:id', async (req,res) => {
+    try{
+        const foundPosts = await Post.findById(req.params.id).populate('author').populate('comments');
+        res.render('posts/show.ejs', {
+            showPost: foundPosts
+        })
+    } catch(err){
+        res.send(err)
+    }
+})
     
     module.exports = router;

@@ -11,7 +11,9 @@
     <main>
 
     <section>
-    <%=showUser.posts.length%>
+ <%for(let i=0; i<showUser.posts.length;i++) {%>
+    <a href='/posts/<%=showUser.posts[i]._id%>'><%=showUser.posts[i].title%></a></br>
+    <%}%>
     </section>
     </main>
     <footer>
