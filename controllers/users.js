@@ -63,7 +63,6 @@ router.post('/register', async (req, res) => {
 });
 router.get('/:id', async (req,res) => {
     try{
-        const foundPosts = await User.find({})
         const foundUser = await User.findById(req.params.id).populate('posts');
         res.render('users/show.ejs', {
             user: req.session,
