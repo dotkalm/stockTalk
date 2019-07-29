@@ -22,7 +22,7 @@
       <form action="/posts" method="post">
         
         title: <input type="text" name="title" /><br/>
-        
+        author: <input type='text' name='author' value=<%=user.username%>>
         Post: <textarea name="body"></textarea><br/>
         <input type="submit" value="Publish Article"/>
       </form>
