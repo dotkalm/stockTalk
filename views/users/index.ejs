@@ -10,10 +10,16 @@
      </header>
     <main>
     
-    <h2>Hi There!
+    <h2>Muy Buenos Dias, <%= user.username%>!
     <br>
     <section>
-
+   <ul>List of Users</ul>
+    <% for(let i=0; i<users.length; i++){%>
+    <li>
+    <%= users[i].username%>
+    <a href='<%=users[i].posts%>'><%= users[i].posts%></a>
+    </li>
+    <% } %>
     </section>
     </main>
     <footer>

@@ -1,18 +1,21 @@
 const express   = require('express');
 const router    = express.Router();
-const User      = require('../models/users');
+const Post = require('../models/posts');
+const User = require('../models/users');
 const bcrypt    = require('bcryptjs');
 
-router.get('/', (req,res) => {
-    console.log('--------------------------')
-    console.log('--------------------------')
-    console.log('--------------------------')
-    console.log('--------------------------')
-    console.log('--------------------------')
-    console.log('--------------------------')
-    res.render('users/index.ejs', {
-        
-    });
+router.get('/', async (req,res) => {
+    try{
+        const foundUsers = await User.find({})
+        .populate('posts');
+        console.log(foundUsers, '<------ found users')
+        res.render('users/index.ejs', {
+            user: req.session,
+            users: foundUsers
+        })
+    } catch(err){
+        res.send(err);
+    };
 })
 router.post('/login', async (req, res) =>{
     try {
