@@ -37,9 +37,7 @@ router.post('/', (req, res) => {
             res.send(err);
         } else {
             console.log(foundPosts, 'created a post');
-            res.redirect('/posts', {
-                user: req.session
-            })
+            res.redirect('/posts')
         }
     })
 });
