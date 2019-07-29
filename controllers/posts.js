@@ -16,8 +16,24 @@ router.get('/', async (req,res) => {
         })
     } catch(err){
         res.send(err)
-    }
+    };
+});
 
-})
+    router.get('/new', async (req, res) => {
+        try{
+            res.render('posts/new.ejs', {
+                user: req.session
+            });
+        
+        }  catch(err){
+            res.send(err)
+        };
+    });
+
+    // router.post('/', await (req, res) {
+    //     console.log(req.body, 'req.body')
+    //     Post.create(req.body, (err, foundPosts) )
+    // })
+     
     
-module.exports = router;
+    module.exports = router;
