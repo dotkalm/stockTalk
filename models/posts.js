@@ -6,10 +6,10 @@ const postSchema = new mongoose.Schema({
     body: String,
     comments : ['Comment'],
     bearish : Boolean,
-    author:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    }
+    // author:{
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'User'
+    // }
 });
 
 const Post = mongoose.model('Post', postSchema);
