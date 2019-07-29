@@ -31,7 +31,7 @@ router.get('/new', async (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    
+    req.body.author = req.session.user
     Post.create(req.body, (err, foundPosts) => {
         if(err){
             res.send(err);
