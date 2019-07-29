@@ -30,10 +30,17 @@ router.get('/', async (req,res) => {
         };
     });
 
-    // router.post('/', await (req, res) {
-    //     console.log(req.body, 'req.body')
-    //     Post.create(req.body, (err, foundPosts) )
-    // })
+    router.post('/', (req, res) => {
+        console.log(req.body, 'req.body')
+        Post.create(req.body, (err, foundPosts) => {
+            if(err){
+                res.send(err);
+            } else {
+                console.log(foundPosts, 'created a post');
+                res.redirect('/posts')
+            }
+        })
+    });
      
     
     module.exports = router;
