@@ -26,6 +26,7 @@ router.post('/login', async (req, res) =>{
             req.session.userID = foundUser._id;
             req.session.username = foundUser.username;
             req.session.logged = true;
+            req.session.user = foundUser
             res.redirect('/posts')
 
         } else {
@@ -50,11 +51,13 @@ router.post('/register', async (req, res) => {
     try {
         const createdUser = await User.create(req.body);
         console.log(createdUser, 'created user');
-        req.session.userId = createUser._id;
+        req.session.userId = createdUser._id;
         req.session.username = createdUser.username;
         req.session.logged = true;
-        res.redirect('users/');
+        req.session.user = createdUser
+        res.redirect('/');
     } catch (err){
+        console.log(err)
         res.send(err)
     }
 });
