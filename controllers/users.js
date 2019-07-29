@@ -53,11 +53,23 @@ router.post('/register', async (req, res) => {
         req.session.userId = createUser._id;
         req.session.username = createdUser.username;
         req.session.logged = true;
-        res.redirect('/');
+        res.redirect('users/');
     } catch (err){
         res.send(err)
     }
 });
+router.get('/:id', async (req,res) => {
+    try{
+        const foundPosts = await User.find({})
+        const foundUser = await User.findById(req.params.id).populate('posts');
+        res.render('users/show.ejs', {
+            user: req.session,
+            showUser: foundUser
+        })
+    } catch(err){
+        res.send(err)
+    }
+})
 
 
 

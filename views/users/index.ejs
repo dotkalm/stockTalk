@@ -16,7 +16,7 @@
    <ul>List of Users</ul>
     <% for(let i=0; i<users.length; i++){%>
     <li>
-    <%= users[i].username%>
+    <a href='<%=users[i]._id%>'><%= users[i].username%></a>
     <a href='<%=users[i].posts%>'><%= users[i].posts%></a>
     </li>
     <% } %>
