@@ -14,10 +14,13 @@
     </p>
     <section>
     A post by <a href='/users/<%=showPost.author._id%>'><%=showPost.author.username%></a> <br>
-    <%=showPost.comments.length%> comments
+    <%=showPost.comments.length%> comments <br>
+    <%for(let i=0; i<showPost.comments.length; i++){%>
+    <%=showPost.comments[i].body%> </br>
+    <%}%>
     </section>
     <section>
-    <form action="<%=showPost._id%>/comments" method="post">
+    <form action="<%=showPost._id%>" method="post">
         
         <textarea name="body"></textarea><br/>
         <input type="submit" value="submit comment"/>

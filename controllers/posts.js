@@ -50,15 +50,31 @@ router.post('/', (req, res) => {
         }
     })
 });
-router.post('/:id/comments', (req, res)=>{
-    Comment.create(req.body, (err, createdComment)=>{
-        if(err){
-            res.send(err);
-        } else {
-            console.log('#############################')
-            console.log(req.body, '<----------REQ.BODY')
-            console.log('#############################')
-            res.redirect(`/posts/${req.params.id}`);
+router.post('/:id', async (req, res)=>{
+    try {
+        const commentCreate = await Comment.create(req.body)
+        req.body.author = req.session.user
+        const findPost = await Post.findById(req.params.id)
+        findPost.comments.push(commentCreate);
+        // findPost.createdBy = req.session.user.username
+        findPost.save()
+
+        console.log('#############################')
+        console.log(req.body, '<----------REQ.BODY')
+        console.log('#############################')
+        console.log(findPost.comments, '<----------findpost')
+        res.redirect(`/posts/${req.params.id}`)
+        
+    } catch(err){
+        res.send(err)
+    }
+})
+    // Comment.create(req.body, (err, createdComment)=>{
+    //     if(err){
+    //         res.send(err);
+    //     } else {
+            
+            // res.redirect(`/posts/${req.params.id}`);
             // Post.findById(req.body.postId, (err, foundPosts) =>{
             //     console.log(foundPosts, '<--- foundPost in comment create route')
             //     foundPosts.comments.push(createdComment);
@@ -67,12 +83,12 @@ router.post('/:id/comments', (req, res)=>{
                     
             //     });
             // });
-        }
-    });
-});
+//         }
+//     });
+// });
 router.get('/:id', async (req,res) => {
     try{
-        const foundPosts = await Post.findById(req.params.id).populate('author').populate('comments');
+        const foundPosts = await Post.findById(req.params.id).populate('author')
         res.render('posts/show.ejs', {
             showPost: foundPosts
         })
