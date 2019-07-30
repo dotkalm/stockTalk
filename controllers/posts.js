@@ -2,6 +2,7 @@ const express   = require('express');
 const router    = express.Router();
 const Post = require('../models/posts');
 const User = require('../models/users')
+const Comment = require('../models/comments')
 
 
 router.get('/', async (req,res) => {
@@ -49,7 +50,26 @@ router.post('/', (req, res) => {
         }
     })
 });
-
+router.post('/:id/comments', (req, res)=>{
+    Comment.create(req.body, (err, createdComment)=>{
+        if(err){
+            res.send(err);
+        } else {
+            console.log('#############################')
+            console.log(req.body, '<----------REQ.BODY')
+            console.log('#############################')
+            res.redirect(`/posts/${req.params.id}`);
+            // Post.findById(req.body.postId, (err, foundPosts) =>{
+            //     console.log(foundPosts, '<--- foundPost in comment create route')
+            //     foundPosts.comments.push(createdComment);
+            //     foundPosts.save((err, savedComment ) => {
+            //         console.log(savedPost, 'this is savedPost');
+                    
+            //     });
+            // });
+        }
+    });
+});
 router.get('/:id', async (req,res) => {
     try{
         const foundPosts = await Post.findById(req.params.id).populate('author').populate('comments');

@@ -5,11 +5,11 @@ const User = require('../models/users');
 const Comment = require('../models/comments')
 
 router.get('/', (req, res) =>{
-    console.log(req.session, ' req.session in index or article')
+    console.log(req.session, 'req.session in index or article')
     Comment.find({}, (err, found))
 });
 
-router.post('/', (req, res)=>{
+router.post('/comments', (req, res)=>{
     Comment.create(req.body, (err, createdComment)=>{
         if(err){
             res.send(err);
