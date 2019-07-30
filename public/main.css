@@ -1,0 +1,16 @@
+.guys{
+    background: radial-gradient(black, transparent)
+}
+h1{
+    color: blueviolet
+}
+.postsinindexroute{
+    font-size: 1rem;
+    background: radial-gradient(yellow, transparent)
+}
+body{
+    background-image: url("sue.jpeg");
+    background-size: 20%;
+    text-align: center;
+
+}

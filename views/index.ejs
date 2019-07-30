@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Index Root Route</title>
+    <link rel="stylesheet" type="text/css" href="/main.css">
   </head>
   <body>
     <header>
@@ -13,7 +14,9 @@
     <a href='/users/'>Users</a>
     <a href='/posts/'>Posts</a>
     </section>
-      <main>
+      <main class='guys'>
+      <span><%=message%></span>
+<h2><%= user.username %>
         <h2>Login</h2>
         <form action="/users/login" method="POST">
           <input type="text" name="username">
@@ -22,6 +25,7 @@
         </form>
 
 <a href='/users/register'>Sign Up Now!</a>
+
 
     </main>
   </body>

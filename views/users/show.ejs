@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%=showUser.username%> Show Route</title>
+  </head>
+  <body>
+    <header>
+      <h1>Posts by <%=showUser.username%> Show Route</h1>
+     </header>
+    <main>
+
+    <section>
+ <%for(let i=0; i<showUser.posts.length;i++) {%>
+    <a href='/posts/<%=showUser.posts[i]._id%>'><%=showUser.posts[i].title%></a></br>
+    <%}%>
+    </section>
+    </main>
+    <footer>
+    <a href='/'>return to main</a>
+    </footer>
+  </body>
+</html>

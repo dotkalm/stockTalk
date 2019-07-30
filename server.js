@@ -18,17 +18,18 @@ app.use(session({
     saveUninitialized: false
 
 }));
-
+app.use(express.static('public'))
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(methodOverride('_method'));
 
-app.use('/comments', commentsController);
+// app.use('/comments', commentsController);
 app.use('/posts', postsController);
 app.use('/users', usersController);
 
 app.get('/', (req, res) => {
     res.render('index.ejs', {
-        message: req.session.message
+        message: req.session.message,
+        user: req.session
     });
 });
 

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%=showPost.title%> Show Route</title>
+  </head>
+  <body>
+    <header>
+      <h1><%=showPost.title%></h1>
+     </header>
+    <main>
+    <p>
+    <%=showPost.body%></br>
+    </p>
+    <section>
+    A post by <a href='/users/<%=showPost.author._id%>'><%=showPost.author.username%></a> <br>
+    <%=showPost.comments.length%> comments <br>
+    <%for(let i=0; i<showPost.comments.length; i++){%>
+    <%=showPost.comments[i].body%> </br>
+    <%}%>
+    </section>
+    <section>
+    <form action="<%=showPost._id%>" method="post">
+        
+        <textarea name="body"></textarea><br/>
+        <input type="submit" value="submit comment"/>
+      </form>
+    </section>
+    </main>
+    <footer>
+    <a href='/'>return to main</a>
+    </footer>
+  </body>
+</html>
