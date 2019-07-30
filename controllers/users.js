@@ -36,9 +36,20 @@ router.post('/login', async (req, res) =>{
 
 });
 
+router.get('/register', async (req, res) => {
+    
+    try {
+        res.render('users/register.ejs')
+    } catch(err){
+        res.send(err)
+    }
+    
+});
 
 
-router.post('/register', async (req, res) => {
+
+router.post('/users/register', async (req, res) => {
+    
     const password = req.body.password;
 
     const hashedPassword = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
