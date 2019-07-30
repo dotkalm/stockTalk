@@ -7,7 +7,8 @@ const commentSchema = new mongoose.Schema({
     createdBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }
+    },
+    timeStamp: { type: Date, default: Date.now}
 })
 
 const Comment = mongoose.model('Comment', commentSchema);

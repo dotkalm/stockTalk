@@ -11,21 +11,24 @@
       <h1><%=showPost.title%></h1>
      </header>
     <main>
-    <p class='showPostBody'>
+    <span class='showPostBody'>
     <%=showPost.body%></br>
-    </p>
+    </span>
     <span class='sectionClass'>
     A post by <a href='/users/<%=showPost.author._id%>'><%=showPost.author.username%></a> <br>
+    posted at <%=showPost.timeStamp%>
+    <div class='empty'></div>
     <%=showPost.comments.length%> comments <br>
     <%for(let i=0; i<showPost.comments.length; i++){%>
     <%=showPost.comments[i].createdBy.username%> said
-    <%=showPost.comments[i].body%> </br>
+    <%=showPost.comments[i].body%> AT <%=showPost.comments[i].timeStamp%></br>
     <%}%>
     </span>
+      <div class='empty'></div>
     <section>
-    <form action="<%=showPost._id%>" method="post">
+    <form class='forms' action="<%=showPost._id%>" method="post" >
         
-        <textarea name="body"></textarea><br/>
+        <textarea class='forms' name="body"></textarea><br/>
         <input type="submit" value="submit comment"/>
       </form>
     </section>

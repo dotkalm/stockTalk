@@ -103,7 +103,7 @@ router.post('/:id', async (req, res)=>{
 // });
 router.get('/:id', async (req,res) => {
     try{
-        const foundPosts = await Post.findById(req.params.id).populate({
+        const foundPosts = await Post.findById(req.params.id).populate('author').populate({
             path: 'comments.createdBy',
             model: 'User'
         })
