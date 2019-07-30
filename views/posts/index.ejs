@@ -20,7 +20,7 @@
       <a href='/posts/<%=posts[i]._id%>'><%=posts[i].title%></a> by <%=posts[i].author.username%></h2><br>
       <%=posts[i].body%> <br>
       <%=posts[i].comments.length%> comments
-      <%=posts[i].timeStamp%></br>
+      <%=posts[i].timeStamp.toLocaleString()%></br>
       </span>
       </br>
       

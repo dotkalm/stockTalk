@@ -16,12 +16,12 @@
     </span>
     <span class='sectionClass'>
     A post by <a href='/users/<%=showPost.author._id%>'><%=showPost.author.username%></a> <br>
-    posted at <%=showPost.timeStamp%>
+    posted at <%=showPost.timeStamp.toLocaleString()%>
     <div class='empty'></div>
     <%=showPost.comments.length%> comments <br>
     <%for(let i=0; i<showPost.comments.length; i++){%>
     <%=showPost.comments[i].createdBy.username%> said
-    <%=showPost.comments[i].body%> AT <%=showPost.comments[i].timeStamp%></br>
+    <%=showPost.comments[i].body%> AT <%=showPost.comments[i].timeStamp.toLocaleString()%></br>
     <%}%>
     </span>
       <div class='empty'></div>
