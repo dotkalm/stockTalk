@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const connectionString = 'mongodb://localhost/stocktalk2';
+const connectionString = 'mongodb://localhost/stocktalk7';
 
 
 mongoose.connect(connectionString, {
