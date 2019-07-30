@@ -18,6 +18,7 @@
     A post by <a href='/users/<%=showPost.author._id%>'><%=showPost.author.username%></a> <br>
     <%=showPost.comments.length%> comments <br>
     <%for(let i=0; i<showPost.comments.length; i++){%>
+    <%=showPost.comments[i].createdBy.username%> said
     <%=showPost.comments[i].body%> </br>
     <%}%>
     </span>

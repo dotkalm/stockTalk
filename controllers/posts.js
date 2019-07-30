@@ -60,14 +60,15 @@ router.post('/', isLogged, (req, res) => {
 });
 router.post('/:id', async (req, res)=>{
     try {
+        req.body.author = req.session.user
         console.log('1')
         const commentCreate = await Comment.create(req.body)
         console.log(req.body, '<----- REQ BODY')
-        // const findGuy = await User.findById(req.body.author._id)
+        const findGuy = await User.findById(req.body.author._id)
         console.log('3')
-        // findGuy.comments.push(commentCreate)
-        // commentCreate.createdBy = findGuy
-        // findGuy.save()
+        findGuy.comments.push(commentCreate)
+        commentCreate.createdBy = findGuy
+        findGuy.save()
         const findPost = await Post.findById(req.params.id)
         findPost.comments.push(commentCreate);
         // findPost.createdBy = req.session.user.username
@@ -102,12 +103,16 @@ router.post('/:id', async (req, res)=>{
 // });
 router.get('/:id', async (req,res) => {
     try{
-        const foundPosts = await Post.findById(req.params.id).populate('author')
+        const foundPosts = await Post.findById(req.params.id).populate({
+            path: 'comments.createdBy',
+            model: 'User'
+        })
+        console.log(foundPosts)
         res.render('posts/show.ejs', {
             showPost: foundPosts
         })
     } catch(err){
-        res.send(err)
+        console.log(err)
     }
 })
     
