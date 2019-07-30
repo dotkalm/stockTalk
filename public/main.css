@@ -1,8 +1,9 @@
 .guys{
-    background: radial-gradient(black, transparent)
+    background: radial-gradient(rgba(0, 0, 255, 1), rgba(255, 0, 0, 0.6))
 }
 h1{
-    color: blueviolet
+    color: pink;
+    font-size: 6rem
 }
 .postsinindexroute{
     font-size: 1rem;
@@ -13,4 +14,7 @@ body{
     background-size: 20%;
     text-align: center;
 
+}
+.sectionClass{
+    background: white;
 }

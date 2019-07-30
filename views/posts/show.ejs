@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title><%=showPost.title%> Show Route</title>
+            <link rel="stylesheet" type="text/css" href="/main.css">
+
   </head>
   <body>
     <header>
@@ -12,13 +14,13 @@
     <p>
     <%=showPost.body%></br>
     </p>
-    <section>
+    <span class='sectionClass'>
     A post by <a href='/users/<%=showPost.author._id%>'><%=showPost.author.username%></a> <br>
     <%=showPost.comments.length%> comments <br>
     <%for(let i=0; i<showPost.comments.length; i++){%>
     <%=showPost.comments[i].body%> </br>
     <%}%>
-    </section>
+    </span>
     <section>
     <form action="<%=showPost._id%>" method="post">
         
