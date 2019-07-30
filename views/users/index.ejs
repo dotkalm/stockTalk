@@ -18,11 +18,7 @@
     <li>
     <a href='<%=users[i]._id%>'><%= users[i].username%></a>
     <ol> 
-    <%for(let i2=0; i2<users[i].posts.length; i2++){%>
-      <a href='/posts/<%=users[i].posts[i2]._id%>'> <%=users[i].posts[i2].title%> </a>
-
-
-    <% } %>
+   
     
     </ol>
     </li>
