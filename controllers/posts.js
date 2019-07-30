@@ -4,6 +4,14 @@ const Post = require('../models/posts');
 const User = require('../models/users')
 const Comment = require('../models/comments')
 
+const isLogged = (req,res,next) =>{
+    if (!req.session.logged){
+        res.redirect("/")
+    } else {
+        next()
+    }
+}
+
 
 router.get('/', async (req,res) => {
     
@@ -20,7 +28,7 @@ router.get('/', async (req,res) => {
     };
 });
 
-router.get('/new', async (req, res) => {
+router.get('/new',isLogged, async (req, res) => {
     try{
         res.render('posts/new.ejs', {
             user: req.session
@@ -31,7 +39,7 @@ router.get('/new', async (req, res) => {
     };
 });
 
-router.post('/', (req, res) => {
+router.post('/', isLogged, (req, res) => {
     req.body.author = req.session.user
     Post.create(req.body, (err, foundPosts) => {
         if(err){
