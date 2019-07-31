@@ -108,13 +108,18 @@ router.post('/:id', async (req, res)=>{
 //     });
 // });
 router.get('/')
-router.get('/:id', async (req,res) => {
+router.get('/:kebabtitle', async (req,res) => {
     try{
-        const foundPosts = await Post.findById({ _id: req.params.id}).populate('author').populate({
+        const foundPosts = await Post.findOne({kebabTitle: req.params.kebabtitle}).populate('author').populate({
             path: 'comments.createdBy',
             model: 'User'
         })
         // console.log(foundPosts)
+        const foundPostByTitle = await Post.findOne({Kebabitle: foundPosts.kebabTitle})
+        console.log('=========kebabTitle=============')
+        console.log(foundPostByTitle)
+        console.log('====found post by title=====')
+        console.log('==========================')
         res.render('posts/show.ejs', {
             showPost: foundPosts
         })
