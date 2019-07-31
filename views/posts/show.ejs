@@ -13,6 +13,7 @@
       <%}else{%><span class='long'>GO LONG BABY</span> <%}%>
      </header>
     <main>
+    <div class="allposts">
     <span class='showPostBody'>
     <%=showPost.body%></br>
     </span>
@@ -26,6 +27,7 @@
     <%=showPost.comments[i].body%> AT <%=showPost.comments[i].timeStamp.toLocaleString()%></br>
     <%}%>
     </span>
+    </div>
       <div class='empty'></div>
     <section>
     <form class='forms' id='comment' action="<%=showPost._id%>" method="post" >
