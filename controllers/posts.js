@@ -92,7 +92,7 @@ router.post('/:id', async (req, res)=>{
         findPost.comments.push(commentCreate);
         findPost.save()
 
-        res.redirect(`/posts/${req.params.id}#comment`)
+        res.redirect(`/posts/${findPost.kebabTitle}#comment`)
         
     } catch(err){
         res.send(err)

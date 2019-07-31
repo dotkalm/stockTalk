@@ -4,6 +4,9 @@
 h1{
     
     font-size: 6rem;
+    
+}
+.animate{
     animation-name: example;
     animation-duration: 14s;
     animation-iteration-count: infinite;
