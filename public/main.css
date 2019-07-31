@@ -43,4 +43,13 @@ body{
 }
 .showPostBody{
     background: antiquewhite;
+    margin: 1rem;
+}
+.short{
+    font-size: 3rem;
+    color: RED
+}
+.long{
+    font-size: 3rem;
+    color: blue
 }

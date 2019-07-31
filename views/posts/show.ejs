@@ -9,6 +9,8 @@
   <body>
     <header>
       <h1><%=showPost.title%></h1>
+      <%if(showPost.bearishCheckBox){%><span class='short'>SHORT THIS STOCK</span>
+      <%}else{%><span class='long'>GO LONG BABY</span> <%}%>
      </header>
     <main>
     <span class='showPostBody'>
