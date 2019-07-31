@@ -61,24 +61,19 @@ router.post('/', isLogged, (req, res) => {
 router.post('/:id', async (req, res)=>{
     try {
         req.body.author = req.session.user
-        console.log('1')
+        
         const commentCreate = await Comment.create(req.body)
-        console.log(req.body, '<----- REQ BODY')
+        
         const findGuy = await User.findById(req.body.author._id)
-        console.log('3')
+        
         findGuy.comments.push(commentCreate)
         commentCreate.createdBy = findGuy
         findGuy.save()
         const findPost = await Post.findById(req.params.id)
         findPost.comments.push(commentCreate);
-        // findPost.createdBy = req.session.user.username
         findPost.save()
 
-        console.log('#############################')
-        console.log(req.body, '<----------REQ.BODY')
-        console.log('#############################')
-        console.log(findPost.comments, '<----------findpost')
-        res.redirect(`/posts/${req.params.id}`)
+        res.redirect(`/posts/${req.params.id}#comment`)
         
     } catch(err){
         res.send(err)
