@@ -129,7 +129,8 @@ router.get('/:kebabtitle', async (req,res) => {
         console.log('====found post by title=====')
         console.log('==========================')
         res.render('posts/show.ejs', {
-            showPost: foundPosts
+            showPost: foundPosts,
+            userId: req.session.userID
         })
     } catch(err){
         console.log(err)

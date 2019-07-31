@@ -35,9 +35,11 @@
       </form>
     </section>
     <section>
+        <%if (showPost.author._id.toString() === userId.toString()) {%>
         <form action="/posts/<%=showPost._id%>?_method=DELETE" method="POST">
               <button type="submit">Delete Post</button>
         </form>
+        <%}%>
      </section>
 
     </main>

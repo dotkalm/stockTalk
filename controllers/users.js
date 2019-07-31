@@ -62,7 +62,7 @@ router.post('/register', async (req, res) => {
     try {
         const createdUser = await User.create(req.body);
         // console.log(createdUser, 'created user');
-        req.session.userId = createdUser._id;
+        req.session.userID = createdUser._id;
         req.session.username = createdUser.username;
         req.session.logged = true;
         req.session.user = createdUser
