@@ -54,7 +54,7 @@ router.post('/', isLogged, (req, res) => {
             
             const titleString = foundPosts.title
             const makeKebab = titleString.replace(/ /g, '-');
-            console.log(makeKebab);
+            console.log(makeKebab, '<------make kebab!XXXXXXXXXxoxoxSUE');
             foundPosts.kebabTitle = makeKebab;
             console.log(foundPosts._id)
             // const postTitleKebab = foundPosts.postTitle.replace(' ', '-')
@@ -123,9 +123,9 @@ router.get('/:kebabtitle', async (req,res) => {
             model: 'User'
         })
         // console.log(foundPosts)
-        const foundPostByTitle = await Post.findOne({Kebabitle: foundPosts.kebabTitle})
+        // const foundPostByTitle = await Post.findOne({Kebabitle: foundPosts.kebabTitle})
         console.log('=========kebabTitle=============')
-        console.log(foundPostByTitle)
+        console.log(foundPosts)
         console.log('====found post by title=====')
         console.log('==========================')
         res.render('posts/show.ejs', {
