@@ -29,6 +29,7 @@ router.post('/login', async (req, res) =>{
             req.session.user = foundUser
             res.redirect('/posts')
 
+
         } else {
 
             req.session.message = "Username or Password incorrect";
