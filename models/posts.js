@@ -5,6 +5,7 @@ const postSchema = new mongoose.Schema({
     title: {type: String, required: true, unique: true},
     kebabTitle: String,
     body: String,
+    slug: String,
     comments : ['Comment'],
     bearishCheckBox : Boolean,
     author:{

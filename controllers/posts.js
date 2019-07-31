@@ -51,12 +51,12 @@ router.post('/', isLogged, (req, res) => {
         if(err){
             res.send(err);
         } else {
-            
+            const makeSlug = foundPosts.body.slice(0, 150)
             const titleString = foundPosts.title
             const makeKebab = titleString.replace(/ /g, '-');
-            console.log(makeKebab, '<------make kebab!XXXXXXXXXxoxoxSUE');
             foundPosts.kebabTitle = makeKebab;
-            console.log(foundPosts._id)
+            foundPosts.slug = makeSlug
+           
             // const postTitleKebab = foundPosts.postTitle.replace(' ', '-')
             console.log('===============================')
             console.log('5=5=5=5=5=5=5=5=5=5=5=5=5=5=5')

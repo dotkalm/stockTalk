@@ -8,4 +8,3 @@ h1selector.setAttribute('style', `animation-delay: .1s`)
 // }
 
 console.log()
-const BRO = showPost.title

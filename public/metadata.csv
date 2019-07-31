@@ -1,2 +1,0 @@
-vendor_code,datatable_code,name,description,columns,filters,primary_key,premium,status,data_version
-AR,MWCS,CME Futures Settlement Prices,"","[{:name=>""code"", :type=>""String""}, {:name=>""date"", :type=>""Date""}, {:name=>""settlement"", :type=>""BigDecimal(16,7)""}]","[""code"", ""date""]","[""code"", ""date""]",true,"{:refreshed_at=>""2019-07-31T02:46:48.000Z"", :status=>""ON TIME"", :expected_at=>""15 5 * * 2-6"", :update_frequency=>""5:15am every Tuesday through Saturday""}","{:code=>""1"", :default=>true, :description=>nil}"
