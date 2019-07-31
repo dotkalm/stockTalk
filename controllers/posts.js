@@ -44,13 +44,14 @@ router.post('/', isLogged, (req, res) => {
     req.body.author = req.session.user
     if(req.body.bearishCheckBox==='on'){
         req.body.bearishCheckBox = true;
-    } else {
+        } else {
         req.body.bearishCheckBox = false;
     }
     Post.create(req.body, (err, foundPosts) => {
         if(err){
             res.send(err);
         } else {
+            foundPosts.bearishCheckBox = req.body.bearishCheckBox;
             User.findById(req.body.author._id, (err, foundUser) => {
                 foundUser.posts.push(foundPosts)
                 console.log(req.body)
