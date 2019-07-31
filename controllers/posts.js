@@ -136,4 +136,18 @@ router.get('/:kebabtitle', async (req,res) => {
     }
 })
     
+router.delete('/:id', async (req, res) => {
+
+    try {
+
+        const deletedPost = await Post.findOneAndDelete({_id: req.params.id});
+        
+        res.redirect('/posts');
+        
+    } catch(err){
+        res.send()
+    }
+
+});
+
     module.exports = router;
