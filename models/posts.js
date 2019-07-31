@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const Comment = require('../models/comments');
 
 const postSchema = new mongoose.Schema({
-    title: {type: String, required: true},
+    title: {type: String, required: true, unique: true},
+    kebabTitle: String,
     body: String,
     comments : ['Comment'],
     bearishCheckBox : Boolean,

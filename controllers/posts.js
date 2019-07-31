@@ -17,7 +17,7 @@ router.get('/', async (req,res) => {
     
     try{
         const foundPosts = await Post.find({}).populate('author');
-        //console.log(foundPosts, '<--------')
+        // console.log(foundPosts, '<--------')
         res.render('posts/index.ejs', {
             posts: foundPosts,
             message: req.session.message,
@@ -51,7 +51,18 @@ router.post('/', isLogged, (req, res) => {
         if(err){
             res.send(err);
         } else {
-            foundPosts.bearishCheckBox = req.body.bearishCheckBox;
+            
+            const titleString = foundPosts.title
+            const makeKebab = titleString.replace(/ /g, '-');
+            console.log(makeKebab);
+            foundPosts.kebabTitle = makeKebab;
+            console.log(foundPosts._id)
+            // const postTitleKebab = foundPosts.postTitle.replace(' ', '-')
+            console.log('===============================')
+            console.log('5=5=5=5=5=5=5=5=5=5=5=5=5=5=5')
+            // console.log(postTitleKebab)
+            console.log('5=5=5=5=5=5=5=5=5=5=5=5=5=5=5')
+            console.log('===============================')
             User.findById(req.body.author._id, (err, foundUser) => {
                 foundUser.posts.push(foundPosts)
                 console.log(req.body)
@@ -62,7 +73,6 @@ router.post('/', isLogged, (req, res) => {
                     res.redirect('/posts')
                 })
             })
-            // console.log(foundPosts, 'created a post');
             
         }
     })
@@ -105,13 +115,19 @@ router.post('/:id', async (req, res)=>{
 //         }
 //     });
 // });
-router.get('/:id', async (req,res) => {
+router.get('/')
+router.get('/:kebabtitle', async (req,res) => {
     try{
-        const foundPosts = await Post.findById(req.params.id).populate('author').populate({
+        const foundPosts = await Post.findOne({kebabTitle: req.params.kebabtitle}).populate('author').populate({
             path: 'comments.createdBy',
             model: 'User'
         })
-        console.log(foundPosts)
+        // console.log(foundPosts)
+        const foundPostByTitle = await Post.findOne({Kebabitle: foundPosts.kebabTitle})
+        console.log('=========kebabTitle=============')
+        console.log(foundPostByTitle)
+        console.log('====found post by title=====')
+        console.log('==========================')
         res.render('posts/show.ejs', {
             showPost: foundPosts
         })
