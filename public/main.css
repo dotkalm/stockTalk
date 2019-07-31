@@ -2,8 +2,21 @@
     background: radial-gradient(rgba(0, 0, 255, 1), rgba(255, 0, 0, 0.6))
 }
 h1{
-    color: pink;
-    font-size: 6rem
+    
+    font-size: 6rem;
+    animation-name: example;
+    animation-duration: 14s;
+    animation-iteration-count: infinite;
+}
+@keyframes example {
+    0%   {text-shadow: 0rem 0rem red;
+          color: rgb(121, 60, 100, .5);}
+    25%  {text-shadow: .8rem .8rem rgba(121, 60, 100, .5);
+        color: rgba(19, 13, 14, 0);}
+    50%  {text-shadow: -.2rem -.8rem black;
+        color: rgb(252, 216, 222);}
+    100% {text-shadow: 0rem 0rem red;
+        color: rgba(121, 60, 100, .5);}
 }
 .postsinindexroute{
     font-size: 1rem;
