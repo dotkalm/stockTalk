@@ -17,11 +17,12 @@ router.get('/', async (req,res) => {
     
     try{
         const foundPosts = await Post.find({}).populate('author');
-        console.log(foundPosts, '<--------')
+        //console.log(foundPosts, '<--------')
         res.render('posts/index.ejs', {
             posts: foundPosts,
             message: req.session.message,
-            user: req.session
+            user: req.session,
+
         })
     } catch(err){
         res.send(err)
@@ -41,19 +42,26 @@ router.get('/new',isLogged, async (req, res) => {
 
 router.post('/', isLogged, (req, res) => {
     req.body.author = req.session.user
+    if(req.body.bearishCheckBox==='on'){
+        req.body.bearishCheckBox = true;
+    } else {
+        req.body.bearishCheckBox = false;
+    }
     Post.create(req.body, (err, foundPosts) => {
         if(err){
             res.send(err);
         } else {
             User.findById(req.body.author._id, (err, foundUser) => {
                 foundUser.posts.push(foundPosts)
+                console.log(req.body)
+                //foundUser.bearish.push(foundPosts)
                 foundPosts.author = foundUser;
                 foundPosts.save();
                 foundUser.save((err, savedUser) => {
                     res.redirect('/posts')
                 })
             })
-            console.log(foundPosts, 'created a post');
+            // console.log(foundPosts, 'created a post');
             
         }
     })
