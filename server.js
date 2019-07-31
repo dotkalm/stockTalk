@@ -29,7 +29,8 @@ app.use('/users', usersController);
 app.get('/', (req, res) => {
     res.render('index.ejs', {
         message: req.session.message,
-        user: req.session
+        user: req.session,
+        onlineUser: req.session.logged
     });
 });
 
