@@ -14,18 +14,20 @@
     <h2>Hi There, <%= user.username %>!
     <br> <a href="/posts/new">Create New Post</a></h2></br>
 
-    
-    <% for(let i=posts.length-1; i>=0; i--){%>
-      <span class='postsinindexroute'>
-      <a href='/posts/<%=posts[i].kebabTitle%>'><%=posts[i].title%></a> by <%=posts[i].author.username%></h2><br>
-      <%=posts[i].body%> <br>
-      <%=posts[i].comments.length%> comments
-      <%=posts[i].timeStamp.toLocaleString()%></br>
-      </span>
-      </br>
-      
-    <% } %>
-    
+    <div class="allposts">
+        <% for(let i=posts.length-1; i>=0; i--){%>
+          <span class='postsinindexroute'>
+          <%if(posts[i].bearishCheckBox){%>&#128078 &#128201 <%}else{%>
+           &#128077 &#x1f4c8<%}%>
+            <a href='/posts/<%=posts[i].kebabTitle%>'><%=posts[i].title%></a> by <%=posts[i].author.username%></h2>
+            <%=posts[i].slug%>... 
+            <%=posts[i].comments.length%> comments
+            <%=posts[i].timeStamp.toLocaleString()%></br>
+          </span>
+          </br>
+          
+        <% } %>
+    </div>
     </main>
     <footer>
     <a href='/'>return to main</a>
