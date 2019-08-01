@@ -3,6 +3,9 @@ const bodyParser        = require('body-parser');
 const methodOverride    = require('method-override');
 const session           = require('express-session');
 const app               = express();
+require('dotenv').config()
+const PORT = process.env.PORT
+
 
 
 require('./db/db');
@@ -34,6 +37,6 @@ app.get('/', (req, res) => {
     });
 });
 
-app.listen(8080, () => {
-    console.log('listening on port 8080');
+app.listen(PORT, () => {
+    console.log(`listening to server on ${PORT}`)
 });
