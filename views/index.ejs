@@ -18,13 +18,14 @@
      </header>
     <br>
     <section>
-    <a href='/users/'>Users</a>
-    <a href='/posts/'>Posts</a>
+    <% if (!onlineUser) { %>
+      <a href='/users/register'><span class='register'>REGISTER</span></a>
+    <% } %>
     </section>
       <main class='guys'>
       <span><%=message%></span>
       <% if (onlineUser) { %>
-<h2><%= user.username %>
+<h2><%= user.username %> is ONLINE
       <% } else { %> 
         <h2>Login</h2>
         <form autocomplete="off" action="/users/login" method="POST">
