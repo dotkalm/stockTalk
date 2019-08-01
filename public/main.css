@@ -10,6 +10,7 @@ h1{
     animation-name: example;
     animation-duration: 14s;
     animation-iteration-count: infinite;
+    margin: 3rem 0 3rem 0rem;
 }
 @keyframes example {
     0%   {text-shadow: 0rem 0rem red;
@@ -46,15 +47,53 @@ body{
     margin: 1rem;
 }
 .short{
-    font-size: 3rem;
-    color: RED
+    font-size: 5rem;
+    color: RED;
+    background-color: bisque;
+    width: 80%;
+    margin: auto;
+    height: 15rem;
 }
 .long{
-    font-size: 3rem;
-    color: blue
+    font-size: 5rem;
+    color: blue;
+    background-color: bisque;
+    width: 80%;
+    margin: auto;
+    height: 15rem;
 }
 .allposts{
     background-color: rgba(255, 255, 255, .9);
     width: 80%;
     margin:auto;
+}
+.top{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.usersLink{
+    background-color: rgb(128, 115, 0);
+    border-style: solid;
+  border-color: rgb(128, 115, 0);;
+}
+.postsLink{
+    background-color: forestgreen;
+    border-style: solid;
+  border-color: forestgreen;
+}
+.logOut{
+    background-color: aquamarine;
+    border-style: solid;
+  border-color: aquamarine;
+}
+.logOut a {
+    text-decoration: none;
+    
+}
+a {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+  }
+.emoji{
+    font-size: 12rem
 }

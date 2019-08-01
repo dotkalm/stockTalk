@@ -3,14 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title><%=showPost.title%></title>
-            <link rel="stylesheet" type="text/css" href="/main.css">
-
+        <link rel="stylesheet" type="text/css" href="/main.css">
+        <script defer="defer" src="/app.js"></script>
   </head>
   <body>
     <header>
+    <div class='top'>
+    <a href='/users/logout'><span class='logOut'>LOG OUT</span></a>
+     <a href='/users'><span class='usersLink'>USERS</span></a>
+     <a href='/posts'><span class='postsLink'>POSTS</span></a>
+    </div>
       <h1><%=showPost.title%></h1>
-      <%if(showPost.bearishCheckBox){%><span class='short'>SHORT THIS STOCK</span>
-      <%}else{%><span class='long'>GO LONG BABY</span> <%}%>
+      <%if(showPost.bearishCheckBox){%><div class='short'>SHORT THIS STOCK<span class='emoji'>&#128078</span></div>
+      <%}else{%><div class='long'>GO LONG BABY<span class='emoji'>&#128077</span></div> <%}%>
      </header>
     <main>
     <div class="allposts">

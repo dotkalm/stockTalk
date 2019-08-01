@@ -3,13 +3,20 @@
   <head>
     <meta charset="utf-8">
     <title>Index Route | Users</title>
+    <link rel="stylesheet" type="text/css" href="/main.css">
+    <script defer="defer" src="/app.js"></script>
   </head>
   <body>
     <header>
+    <div class='top'>
+    <a href='/users/logout'><span class='logOut'>LOG OUT</span></a>
+     <a href='/posts'><span class='postsLink'>POSTS</span></a>
+     
+    </div>
       <h1>Index Route | Users</h1>
      </header>
     <main>
-    
+    <div class="allposts">
     <h2>Muy Buenos Dias, <%= user.username%>!
     <br>
     <section>
@@ -24,6 +31,7 @@
     </li>
     <% } %>
     </section>
+    </div>
     </main>
     <footer>
     <a href='/'>return to main</a>

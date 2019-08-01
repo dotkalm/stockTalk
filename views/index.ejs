@@ -8,6 +8,12 @@
   </head>
   <body>
     <header>
+    <div class='top'>
+     <% if (onlineUser) { %><a href='/users/logout'><span class='logOut'>LOG OUT</span></a>
+     <a href='/users'><span class='usersLink'>USERS</span></a>
+     <a href='/posts'><span class='postsLink'>POSTS</span></a>
+      <% } %>
+    </div>
       <h1>Bienvenidos, <% if (onlineUser) { %><%= user.username %><% } else { %>  Amigos <% } %> </h1>
      </header>
     <br>
