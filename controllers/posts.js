@@ -17,7 +17,6 @@ router.get('/', async (req,res) => {
     
     try{
         const foundPosts = await Post.find({}).populate('author');
-        // console.log(foundPosts, '<--------')
         res.render('posts/index.ejs', {
             posts: foundPosts,
             message: req.session.message,
@@ -56,17 +55,8 @@ router.post('/', isLogged, (req, res) => {
             const makeKebab = titleString.replace(/ /g, '-');
             foundPosts.kebabTitle = makeKebab;
             foundPosts.slug = makeSlug
-           
-            // const postTitleKebab = foundPosts.postTitle.replace(' ', '-')
-            console.log('===============================')
-            console.log('5=5=5=5=5=5=5=5=5=5=5=5=5=5=5')
-            // console.log(postTitleKebab)
-            console.log('5=5=5=5=5=5=5=5=5=5=5=5=5=5=5')
-            console.log('===============================')
             User.findById(req.body.author._id, (err, foundUser) => {
                 foundUser.posts.push(foundPosts)
-                console.log(req.body)
-                //foundUser.bearish.push(foundPosts)
                 foundPosts.author = foundUser;
                 foundPosts.save();
                 foundUser.save((err, savedUser) => {
@@ -98,42 +88,22 @@ router.post('/:id', async (req, res)=>{
         res.send(err)
     }
 })
-    // Comment.create(req.body, (err, createdComment)=>{
-    //     if(err){
-    //         res.send(err);
-    //     } else {
-            
-            // res.redirect(`/posts/${req.params.id}`);
-            // Post.findById(req.body.postId, (err, foundPosts) =>{
-            //     console.log(foundPosts, '<--- foundPost in comment create route')
-            //     foundPosts.comments.push(createdComment);
-            //     foundPosts.save((err, savedComment ) => {
-            //         console.log(savedPost, 'this is savedPost');
-                    
-            //     });
-            // });
-//         }
-//     });
-// });
+
 router.get('/')
 router.get('/:kebabtitle', async (req,res) => {
     try{
+       
         const foundPosts = await Post.findOne({kebabTitle: req.params.kebabtitle}).populate('author').populate({
             path: 'comments.createdBy',
             model: 'User'
         })
-        // console.log(foundPosts)
-        // const foundPostByTitle = await Post.findOne({Kebabitle: foundPosts.kebabTitle})
-        console.log('=========kebabTitle=============')
-        console.log(foundPosts)
-        console.log('====found post by title=====')
-        console.log('==========================')
+
         res.render('posts/show.ejs', {
             showPost: foundPosts,
             userId: req.session.userID
         })
     } catch(err){
-        console.log(err)
+        res.send(err)
     }
 })
     
@@ -146,7 +116,7 @@ router.delete('/:id', async (req, res) => {
         res.redirect('/posts');
         
     } catch(err){
-        res.send()
+        res.send(err)
     }
 
 });

@@ -22,7 +22,6 @@ h1{
     100% {text-shadow: 0rem 0rem red;
         color: rgba(121, 60, 100, .5);}
 }
-/* NitLWR8n5RZFFBsxmCsu */
 .postsinindexroute{
     font-size: 1rem;
     background: radial-gradient(yellow, transparent)
@@ -52,7 +51,7 @@ body{
     background-color: bisque;
     width: 80%;
     margin: auto;
-    height: 15rem;
+    height: 2%;
 }
 .long{
     font-size: 5rem;
@@ -60,7 +59,7 @@ body{
     background-color: bisque;
     width: 80%;
     margin: auto;
-    height: 15rem;
+    height: 2%;
 }
 .allposts{
     background-color: rgba(255, 255, 255, .9);
@@ -70,6 +69,12 @@ body{
 .top{
     display: flex;
     flex-direction: row-reverse;
+}
+.register{
+    background-color: rgb(128, 0, 96);
+    border-style: solid;
+    border-color: rgb(128, 0, 96);
+    font-size: 2rem;
 }
 .usersLink{
     background-color: rgb(128, 115, 0);
@@ -95,9 +100,7 @@ a {
     text-decoration: inherit; /* no underline */
   }
 .emoji{
-    font-size: 12rem
+
+    font-size: 4rem
 }
-/* .newposts{
-    background-image: url("gettyimages.jpeg");
-    background-repeat: repeat-x;
-} */
+
