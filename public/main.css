@@ -97,3 +97,7 @@ a {
 .emoji{
     font-size: 12rem
 }
+.newposts{
+    background-image: url("gettyimages.jpeg");
+    background-repeat: repeat-x;
+}
