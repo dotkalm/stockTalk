@@ -1,11 +1,16 @@
-console.log('I SEE YOU IN THE CONSOLE')
-
-const h1selector = document.querySelector('h1')
-h1selector.classList.add("animate");
-h1selector.setAttribute('style', `animation-delay: .1s`)
-
-const logOut = document.querySelector('.logOut')
-console.log(logOut.innerText)
-logOut.onclick = () => {
-    
+function moveWords(){
+  const muyBien = document.querySelector('.muyBien')
+  const h1selector = document.querySelector('h1')
+  const newString = muyBien.innerText;
+  muyBien.style.display = 'none';
+  for(let i =0; i<newString.length; i++){
+    const character = document.createElement('span')
+    character.classList.add("animate");
+    character.innerText = newString[i]
+    character.setAttribute('style', `animation-delay: ${i/8}s`)
+    h1selector.appendChild(character)
   }
+}
+
+moveWords();
+
