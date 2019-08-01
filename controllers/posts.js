@@ -52,7 +52,7 @@ router.post('/', isLogged, (req, res) => {
         } else {
             const makeSlug = foundPosts.body.slice(0, 150)
             const titleString = foundPosts.title
-            const makeKebab = titleString.replace(/ /g, '-').replace(/[^0-9a-zA-Z]/g, '');
+            const makeKebab = titleString.replace(/ /g, '-').replace(/[^0-9a-zA-Z]/g, '_');
             foundPosts.kebabTitle = makeKebab;
             foundPosts.slug = makeSlug
             User.findById(req.body.author._id, (err, foundUser) => {
