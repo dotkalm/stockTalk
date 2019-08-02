@@ -26,14 +26,6 @@
     A post by <a href='/users/<%=showPost.author._id%>'><%=showPost.author.username%></a> <br>
     posted at <%=showPost.timeStamp.toLocaleString()%>
     <div class='empty'></div>
-    <%=showPost.comments.length%> comments <br>
-    <%for(let i=0; i<showPost.comments.length; i++){%>
-    <%=showPost.comments[i].createdBy.username%> said
-    <%=showPost.comments[i].body%> AT <%=showPost.comments[i].timeStamp.toLocaleString()%></br>
-    <%}%>
-    </span>
-    </div>
-      <div class='empty'></div>
     <section>
     <form class='forms' id='comment' action="<%=showPost._id%>" method="post" >
         
@@ -41,6 +33,15 @@
         <input type="submit" value="submit comment"/>
       </form>
     </section>
+    <%=showPost.comments.length%> comments <br>
+    <%for(let i=showPost.comments.length-1; i>=0; i--){%>
+    <%=showPost.comments[i].createdBy.username%> said
+    <%=showPost.comments[i].body%> AT <%=showPost.comments[i].timeStamp.toLocaleString()%></br>
+    <%}%>
+    </span>
+    </div>
+      <div class='empty'></div>
+
     <section>
         <%if (showPost.author._id.toString() === userId.toString()) {%>
         <form action="/posts/<%=showPost._id%>?_method=DELETE" method="POST">

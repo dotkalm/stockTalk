@@ -3,9 +3,9 @@
 }
 h1{
     
-    font-size: 8rem;
+    font-size: 600%;
     background: radial-gradient(rgba(100, 200, 255, 1), rgba(255, 250, 250, 0.6));
-    line-height: 12rem;
+    line-height: 90%;
 }
 .animate{
     animation-name: example;
